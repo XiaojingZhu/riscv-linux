@@ -143,7 +143,16 @@ config RV_PUM
 	  accessing user-space memory.  There is a small performance cost
 	  and kernel size increase if this is enabled.
 
-	  If unsure, say Y.
+	  If unsure, say Y
+	  
+config RV_NO_EXEC_BIT
+         def_bool y
+         prompt "Execute bit not used in the data and stack Memory" if EXPERT
+         ---help---
+           Protect User data and stack Memory from executing after loaded by the kernel, 
+	   protect the user process from code injection attacks.  
+ 
+           If unsure, say Y.
 
 endmenu
 
